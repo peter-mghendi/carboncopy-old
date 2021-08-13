@@ -15,6 +15,10 @@
 import { Options, Vue } from "vue-class-component";
 import ProjectOverview from "@/components/ProjectOverview.vue";
 import { Project } from "@/models";
+import { GitHubProjectRepository, Repository } from "@/repositories";
+
+// TODO: Change this to use a different data source.
+const repository: Repository<Project> = new GitHubProjectRepository();
 
 @Options({
   components: {
@@ -23,5 +27,9 @@ import { Project } from "@/models";
 })
 export default class Home extends Vue {
   projects: Project[] = [];
+
+  async created(): Promise<void> {
+    this.projects = await repository.getAllAsync();
+  }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <a :href="project.url">{{ project.title }}</a>
+    <a :href="project.url">{{ project.name }}</a>
   </div>
 </template>
 
