@@ -1,7 +1,7 @@
 <template>
   <div class="projects">
-    <h1>This is the projects page</h1>
-    <div>
+    <h1 class="text-4xl font-semibold mb-8">Project Showcase</h1>
+    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       <ProjectOverview
         v-for="project in projects"
         :project="project"

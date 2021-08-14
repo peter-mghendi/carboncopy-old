@@ -1,11 +1,23 @@
 <template>
-  <div id="nav">
+  <div id="nav" class="p-4">
     <router-link :to="{ name: 'home' }">Home</router-link> |
     <router-link :to="{ name: 'projects' }">Projects</router-link> |
     <router-link :to="{ name: 'posts' }">Posts</router-link> |
     <router-link :to="{ name: 'about' }">About</router-link>
   </div>
-  <router-view />
+  <div class="p-4">
+    <router-view />
+  </div>
+  <footer class="text-center bg-gray-50 py-4 mt-auto">
+    &copy; {{ new Date().getFullYear() }}
+    <a
+      href="https://github.com/sixpeteunder"
+      target="_blank"
+      class="font-semibold hover:underline"
+    >
+      sixpeteunder
+    </a>
+  </footer>
 </template>
 
 <style>
@@ -15,10 +27,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
 }
 
 #nav a {

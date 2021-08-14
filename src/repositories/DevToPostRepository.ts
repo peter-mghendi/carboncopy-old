@@ -20,6 +20,7 @@ const tag = "showcase";
 // The collection to fetch
 const collection_id = 0;
 
+// TODO Regenerate these from Swagger spec
 interface User {
   name: string;
   username: string;
@@ -44,13 +45,13 @@ export interface DevToArticle {
   collection_id: number | null;
   published_timestamp: Date;
   positive_reactions_count: number;
-  cover_image: string;
+  cover_image: string | null;
   social_image: string;
   canonical_url: string;
   created_at: Date;
   edited_at: Date | null;
   crossposted_at: Date | null;
-  published_at: Date;
+  published_at: string;
   last_comment_at: Date | null;
   reading_time_minutes: number;
   tag_list: string[];
@@ -80,8 +81,8 @@ export class DevToPostRepository implements Repository<Post> {
       id: article.id,
       title: article.title,
       description: article.description,
-      image: article.cover_image,
-      published: article.published_at,
+      image: article.cover_image ?? "img/no-image.jpg",
+      published: new Date(article.published_at),
       url: article.url,
     }));
 

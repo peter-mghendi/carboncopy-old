@@ -48,7 +48,7 @@ export class GitHubProjectRepository implements Repository<Project> {
           id: repository.id,
           name: repository.name,
           description: repository.description,
-          url: repository.homepage || repository.html_url,
+          url: repository.homepage ?? repository.html_url,
         };
 
         projects.push(project);
