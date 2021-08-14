@@ -2,6 +2,7 @@ import { defineUserConfig } from 'vuepress'
 import type { DefaultThemeOptions } from 'vuepress'
 
 export default defineUserConfig<DefaultThemeOptions>({
+    base: '/carboncopy/',
     lang: 'en-US',
     title: 'Carbon Copy',
     description: 'A carbon copy of you.',
