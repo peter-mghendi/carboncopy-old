@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full rounded-xl bg-gray-50 hover:shadow-lg">
+  <div class="w-full rounded-xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg">
     <img :src="post.image" :alt="post.title" class="rounded-xl" />
     <div class="p-4 text-left">
       <p class="text-sm text-gray-500">

@@ -8,7 +8,7 @@
   <div class="p-4">
     <router-view />
   </div>
-  <footer class="text-center bg-gray-50 py-4 mt-auto">
+  <footer class="text-center bg-gray-50 dark:bg-gray-800 py-4 mt-auto">
     &copy; {{ new Date().getFullYear() }}
     <a
       href="https://github.com/sixpeteunder"
@@ -25,8 +25,6 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 
 #nav a {
