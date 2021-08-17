@@ -1,26 +1,9 @@
+import { DevToFetchMode, devtoOptions as options } from "@/config";
 import { Post } from "@/models";
 import axios from "axios";
 import { Repository } from ".";
 
-enum FetchMode {
-  All,
-  Tag,
-  Collection,
-}
-
-// Set this to your Dev.To username.
-const username = "nataliedeweerd";
-
-// How to fetch the articles.
-const fetchMode: FetchMode = FetchMode.All;
-
-// The tag to filter by.
-const tag = "showcase";
-
-// The collection to fetch
-const collection_id = 0;
-
-// TODO Regenerate these from Swagger spec
+// TODO Regenerate these from Swagger spec or use a wrapper library
 interface User {
   name: string;
   username: string;
@@ -31,7 +14,7 @@ interface User {
   profile_image_90: string;
 }
 
-export interface DevToArticle {
+interface DevToArticle {
   type_of: string;
   id: number;
   title: string;
@@ -63,18 +46,12 @@ export class DevToPostRepository implements Repository<Post> {
   private readonly _client = axios.create({ baseURL: "https://dev.to/api" });
 
   public async getAllAsync(): Promise<Post[]> {
-    const params: {
-      username: string;
-      tag?: string;
-      collection_id?: number;
-    } = { username };
-
-    if (fetchMode === FetchMode.Tag) params.tag = tag;
-    if (fetchMode === FetchMode.Collection)
-      params.collection_id = collection_id;
-
     const response = await this._client.get<DevToArticle[]>("/articles", {
-      params,
+      params: {
+        username: options.username,
+        tag: (options.fetchMode === DevToFetchMode.Tag || undefined) && options.tag,
+        collection_id: (options.fetchMode === DevToFetchMode.Collection || undefined) && options.collection_id,
+      },
     });
 
     const posts: Post[] = response.data.map((article) => ({
