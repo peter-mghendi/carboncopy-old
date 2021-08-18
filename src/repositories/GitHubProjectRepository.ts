@@ -14,8 +14,9 @@ export class GitHubProjectRepository implements Repository<Project> {
         username: options.username,
         type: options.type,
         sort: options.sort,
-        direction: options.direction
-      });
+        direction: options.direction,
+      }
+    );
 
     const projects: Project[] = [];
 

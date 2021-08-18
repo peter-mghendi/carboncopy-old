@@ -10,8 +10,15 @@
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/vue-fontawesome": "^3.0.0-4",
+    "@tailwindcss/typography": "^0.4.1",
     "axios": "^0.21.1",
     "core-js": "^3.8.3",
+    "dompurify": "^2.3.1",
+    "marked": "^3.0.0",
     "octokit": "^1.4.0",
     "register-service-worker": "^1.7.2",
     "vue": "^3.0.4",
@@ -20,6 +27,8 @@
     "vuex": "^4.0.0"
   },
   "devDependencies": {
+    "@types/dompurify": "^2.2.3",
+    "@types/marked": "^2.0.4",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
     "@vue/cli-plugin-babel": "~5.0.0-beta.3",

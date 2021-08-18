@@ -49,8 +49,12 @@ export class DevToPostRepository implements Repository<Post> {
     const response = await this._client.get<DevToArticle[]>("/articles", {
       params: {
         username: options.username,
-        tag: (options.fetchMode === DevToFetchMode.Tag || undefined) && options.tag,
-        collection_id: (options.fetchMode === DevToFetchMode.Collection || undefined) && options.collection_id,
+        tag:
+          (options.fetchMode === DevToFetchMode.Tag || undefined) &&
+          options.tag,
+        collection_id:
+          (options.fetchMode === DevToFetchMode.Collection || undefined) &&
+          options.collection_id,
       },
     });
 
